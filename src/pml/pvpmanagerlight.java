@@ -30,26 +30,28 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class pvpmanagerlight extends JavaPlugin{
 	protected String messReload;
 	protected String messNoPerm;
+	private Boolean enable;
 
 	public void onEnable() {
 		getConfig().options().copyDefaults(true);
-		saveDefaultConfig();
+	    saveDefaultConfig();
 		loadConfig();
-		getCommand("pvpmanagerlight").setExecutor(new PvPCommands(this));		
-		getServer().getPluginManager().registerEvents(new PvPListener(null, null), this);
+		if (enable) {
+		    getCommand("pvpmanagerlight").setExecutor(new PvPCommands(this));		
+		    getServer().getPluginManager().registerEvents(new PvPListener(null, null), this);
 		
-		Log.info("PvPManagerLight has enabled.");
+		    Log.info("PvPManagerLight has enabled.");
+		} else {
+			Log.info("PvPManagerLight has disabled.");
+		}
 	}
 	
 	public void loadConfig() {	
 		
 		FileConfiguration config = YamlConfiguration.loadConfiguration(new File(this.getDataFolder(),"config.yml"));
-		
+		enable = config.getBoolean("enable");
 		messReload = ChatColor.translateAlternateColorCodes('&', config.getString("messages.reload"));
 		messNoPerm = ChatColor.translateAlternateColorCodes('&', config.getString("messages.nopermission"));
-		
-		saveConfig();
-
 	}
 	
 	public void onDisable() {

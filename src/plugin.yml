@@ -13,6 +13,19 @@ permissions:
     pvpmanagerlight.*:
         description: Gives access to all plugin's command
         children:
-            pvpmanager.reload: true
+            pvpmanagerlight.reload: true
+            pvpmanagerlight.bypass: true
     pvpmanagerlight.reload:
         description: Allows reload plugin's config
+    pvpmanagerlight.bypass:
+        description: Allow pvp in god, fly and creative
+        children:
+            pvpmanagerlight.fly: true
+            pvpmanagerlight.god: true
+            pvpmanagerlight.creative: true
+    pvpmanagerlight.fly:
+        description: Allow pvp in fly
+    pvpmanagerlight.god:
+        description: Allow pvp in god
+    pvpmanagerlight.creative:
+        description: Allow pvp in creative

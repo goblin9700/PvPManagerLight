@@ -1,10 +1,15 @@
 # Config file of the PvPManagerLight
 #
 #Permission:
-#  pvpmanager.bypass
-#     
+#  pvpmanagerlight.*
+#      pvpmanagerlight.bypass
+#          pvpmanagerlight.fly
+#          pvpmanagerlight.god
+#          pvpmanagerlight.creative
+#      pvpmanagerlight.reload
 #
 #
+enable: true
 
 messages:
   reload: '&aPvPManagerLight configuration reloaded.'

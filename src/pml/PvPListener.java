@@ -23,17 +23,17 @@ public class PvPListener implements Listener{
 	      if(e.getDamager() instanceof Player & e.getEntity() instanceof Player) {
 	         Player p = (Player)e.getDamager();
 	         if(!p.hasPermission("pvpmanagerlight.bypass")) {
-	            if(p.getGameMode() == GameMode.CREATIVE) {
+	            if(p.getGameMode() == GameMode.CREATIVE && p.hasPermission("pvpmanagerlight.creative")) {
 	               e.setCancelled(true);
 	               return;
 	            }
 
-	            if(p.isFlying()) {
+	            if(p.isFlying() && !p.hasPermission("pvpmanagerlight.fly")) {
 	               e.setCancelled(true);
 	               return;
 	            }
 
-	            if(p.hasMetadata("god")) {
+	            if(p.hasMetadata("god") && !p.hasPermission("pvpmanagerlight.god")) {
 	               e.setCancelled(true);
 	               return;
 	            }

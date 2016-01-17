@@ -1,3 +1,21 @@
+/*
+ * PvPManagerLight - a bukkit plugin
+ * Copyright 2015  goblin9700  (email: alexgrist@yandex.ua)
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package pml;
 
 import java.io.File;
@@ -10,18 +28,16 @@ import org.bukkit.craftbukkit.libs.jline.internal.Log;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class pvpmanagerlight extends JavaPlugin{
-	private JavaPlugin plugin;
 	protected String messReload;
 	protected String messNoPerm;
-	protected String messNoCreatPvp;
-	protected String messNoFlyPvp;
-	protected String messNoGodPvp;
+
 	public void onEnable() {
-		
+		getConfig().options().copyDefaults(true);
 		saveDefaultConfig();
 		loadConfig();
-		
+		getCommand("pvpmanagerlight").setExecutor(new PvPCommands(this));		
 		getServer().getPluginManager().registerEvents(new PvPListener(null, null), this);
+		
 		Log.info("PvPManagerLight has enabled.");
 	}
 	
@@ -31,12 +47,9 @@ public class pvpmanagerlight extends JavaPlugin{
 		
 		messReload = ChatColor.translateAlternateColorCodes('&', config.getString("messages.reload"));
 		messNoPerm = ChatColor.translateAlternateColorCodes('&', config.getString("messages.nopermission"));
-		messNoCreatPvp = ChatColor.translateAlternateColorCodes('&', config.getString("messages.nocreatpvp"));
-		messNoFlyPvp = ChatColor.translateAlternateColorCodes('&', config.getString("messages.noflypvp"));
-		messNoGodPvp = ChatColor.translateAlternateColorCodes('&', config.getString("messages.nogodpvp"));
 		
 		saveConfig();
-		plugin.getLogger().info("Configuration succeful loaded.");
+
 	}
 	
 	public void onDisable() {

@@ -21,7 +21,7 @@ public class PvPCommands implements CommandExecutor {
 		if (sender instanceof Player) {
 			if (args.length == 1) {
 				if (args[0].equalsIgnoreCase("reload")) {
-					if (sender.hasPermission("portallock.reload")) {
+					if (sender.hasPermission("pvpmanagerlight.reload")) {
 						plugin.reloadConfig();
 						plugin.loadConfig();
 						sender.sendMessage(plugin.messReload);
@@ -31,7 +31,7 @@ public class PvPCommands implements CommandExecutor {
 				}
 			}
 		} else {
-			sender.sendMessage("PortalLock " + "This is an in-game only command");
+			sender.sendMessage("PvPManagerLight " + "This is an in-game only command");
 			return true;
 		}
 		return true;

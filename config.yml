@@ -1,0 +1,14 @@
+# Config file of the PvPManagerLight
+#
+#Permission:
+#  pvpmanager.bypass
+#     
+#
+#
+
+messages:
+  reload: '&aPvPManagerLight configuration reloaded.'
+  nopermission: '&cYou dont have permission.'
+  nocreatpvp: '&cYou dont have permission'
+  noflypvp: '&cYou dont have permission'
+  nogodtpvp: '&cYou dont have permission'

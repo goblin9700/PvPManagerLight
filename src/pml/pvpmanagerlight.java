@@ -24,7 +24,7 @@ import net.md_5.bungee.api.ChatColor;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.craftbukkit.libs.jline.internal.Log;
+//import org.bukkit.craftbukkit.libs.jline.internal.Log;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class pvpmanagerlight extends JavaPlugin{
@@ -40,9 +40,9 @@ public class pvpmanagerlight extends JavaPlugin{
 		    getCommand("pvpmanagerlight").setExecutor(new PvPCommands(this));		
 		    getServer().getPluginManager().registerEvents(new PvPListener(null, null), this);
 		
-		    Log.info("PvPManagerLight has enabled.");
+		    //Log.info("PvPManagerLight has enabled.");
 		} else {
-			Log.info("PvPManagerLight has disabled.");
+			//Log.info("PvPManagerLight has disabled.");
 		}
 	}
 	
@@ -55,7 +55,7 @@ public class pvpmanagerlight extends JavaPlugin{
 	}
 	
 	public void onDisable() {
-		Log.info("PvPManagerLight has disabled");
+		//Log.info("PvPManagerLight has disabled");
 	}
 	
 
